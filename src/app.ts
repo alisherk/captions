@@ -1,11 +1,11 @@
-import { fetchOptions } from './captions';
+import { fetchCaptions } from './captions';
 
 const showCaps = () => {
   const video = document.querySelector('video')!;
 
   const captionDiv = document.querySelector('#captions')!;
 
-  const options = fetchOptions();
+  const options = fetchCaptions();
 
   let timer: ReturnType<typeof setTimeout> | undefined;
 

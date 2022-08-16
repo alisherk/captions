@@ -1,4 +1,4 @@
-export const fetchOptions = () => [
+export const fetchCaptions = () => [
   { text: 'Lorem ipsum dolor sit amet' },
   { text: 'Consectetur adipiscing elit' },
   { text: 'Quis autem vel eum iure reprehenderit' },
