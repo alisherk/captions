@@ -11,10 +11,8 @@ const showCaps = () => {
 
   let cachedIndex = 0;
 
-  video.addEventListener('play', (_) => {
-    console.log(cachedIndex);
-    
-    captionDiv.classList.add('active');
+  video.addEventListener('play', (_) => {   
+   captionDiv.classList.add('active');
 
     captionDiv.textContent = options[cachedIndex].text;
 
@@ -35,6 +33,8 @@ const showCaps = () => {
     captionDiv.textContent = '';
 
     captionDiv.classList.remove('active');
+
+    cachedIndex = 0;
   });
 };
 
