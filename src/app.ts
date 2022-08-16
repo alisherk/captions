@@ -21,11 +21,11 @@ const showCaps = () => {
     timer = setInterval(() => {
       captionDiv.textContent = captions[index].text;
 
+      index++;
+
       if(index >= captions.length - 1) {
         index = Math.floor(Math.random() * captions.length);
       }
-
-      index++;
     }, intervalSpeed);
   });
 
