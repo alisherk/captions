@@ -5,21 +5,21 @@ const showCaps = () => {
 
   const captionDiv = document.querySelector('#captions')!;
 
-  const options = fetchCaptions();
+  const captions = fetchCaptions();
 
   let timer: ReturnType<typeof setTimeout> | undefined;
 
-  let cachedIndex = 0;
+  let index = 0;
 
   video.addEventListener('play', (_) => {   
    captionDiv.classList.add('active');
 
-    captionDiv.textContent = options[cachedIndex].text;
+    captionDiv.textContent = captions[index].text;
 
     timer = setInterval(() => {
-      captionDiv.textContent = options[cachedIndex].text;
+      captionDiv.textContent = captions[index].text;
 
-     cachedIndex++
+      index++
     }, 1200);
   });
 
@@ -34,7 +34,7 @@ const showCaps = () => {
 
     captionDiv.classList.remove('active');
 
-    cachedIndex = 0;
+    index = 0;
   });
 };
 
