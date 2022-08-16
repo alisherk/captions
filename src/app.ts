@@ -7,29 +7,29 @@ const showCaps = () => {
 
   const captions = fetchCaptions();
 
-  let timer: ReturnType<typeof setTimeout> | undefined;
+  let timer: number | undefined;
 
   let index = 0;
 
-  video.addEventListener('play', (_) => {   
-   captionDiv.classList.add('active');
+  video.addEventListener('play', (_) => {
+    captionDiv.classList.add('active');
 
     captionDiv.textContent = captions[index].text;
 
     timer = setInterval(() => {
       captionDiv.textContent = captions[index].text;
 
-      index++
+      index++;
     }, 1200);
   });
 
   video.addEventListener('pause', (_) => {
-    clearTimeout(timer);
-  })
+    clearInterval(timer);
+  });
 
   video.addEventListener('ended', (_) => {
-    clearTimeout(timer);
-    
+    clearInterval(timer);
+
     captionDiv.textContent = '';
 
     captionDiv.classList.remove('active');
