@@ -12,6 +12,8 @@ const showCaps = () => {
   let index = 0;
 
   video.addEventListener('play', (_) => {
+    const intervalSpeed = Math.floor(video.duration * 100); 
+
     captionDiv.classList.add('active');
 
     captionDiv.textContent = captions[index].text;
@@ -19,8 +21,12 @@ const showCaps = () => {
     timer = setInterval(() => {
       captionDiv.textContent = captions[index].text;
 
+      if(index >= captions.length - 1) {
+        index = Math.floor(Math.random() * captions.length);
+      }
+
       index++;
-    }, 1200);
+    }, intervalSpeed);
   });
 
   video.addEventListener('pause', (_) => {
