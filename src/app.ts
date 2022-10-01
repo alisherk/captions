@@ -12,7 +12,7 @@ const showCaps = () => {
   let index = 0;
 
   video.addEventListener('play', (_) => {
-    const intervalSpeed = Math.floor(video.duration * 100); 
+    const intervalSpeed = Math.floor(video.duration * 100);
 
     captionDiv.classList.add('active');
 
@@ -23,7 +23,7 @@ const showCaps = () => {
 
       index++;
 
-      if(index >= captions.length - 1) {
+      if (index >= captions.length - 1) {
         index = Math.floor(Math.random() * captions.length);
       }
     }, intervalSpeed);
@@ -44,4 +44,23 @@ const showCaps = () => {
   });
 };
 
+const showImage = () => {
+  const imageContainer = document.querySelector('#image-wrapper')!;
+
+  imageContainer.addEventListener('click', () => {
+    const image = document.createElement('img');
+
+    image.src = 'https://picsum.photos/200/100';
+
+    imageContainer?.appendChild(image);
+  });
+
+  const btn = document.createElement('button');
+
+  btn.textContent = 'Press me';
+
+  imageContainer.appendChild(btn);
+};
+
 showCaps();
+showImage();
